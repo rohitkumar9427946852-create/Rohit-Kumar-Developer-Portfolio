@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ROHIT.DEV Portfolio"
+description = "A recruiter-friendly personal developer portfolio for Rohit Kumar, presented as an interactive command center with projects, skills, education, coding profiles, and contact flows."
+version = "1.0.0"
+id = "artifacts/rohit-dev-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21482
+
+[services.development]
+run = "pnpm --filter @workspace/rohit-dev-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/rohit-dev-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/rohit-dev-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21482"
+BASE_PATH = "/"

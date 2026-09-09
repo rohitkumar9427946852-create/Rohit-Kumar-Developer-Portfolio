@@ -1,10 +1,11 @@
-# [Project name]
+# Rohit Kumar Developer Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+ROHIT.DEV is a recruiter-friendly personal portfolio for Rohit Kumar, presented as an interactive developer command center.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/rohit-dev-portfolio run dev` — run the portfolio preview
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,15 +23,21 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/rohit-dev-portfolio/src/data/portfolio.ts` — single source of truth for personal, social, skills, education, project, profile, and journey content.
+- `artifacts/rohit-dev-portfolio/src/components/portfolio.tsx` — componentized portfolio surface and local interactions.
+- `artifacts/rohit-dev-portfolio/src/index.css` — dark command-center visual tokens, grid texture, motion, and responsive utilities.
+- `artifacts/rohit-dev-portfolio/public/resume.pdf` — optional resume location; the UI detects whether the file exists before enabling download controls.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Portfolio content is centralized so personal details and project claims can be updated without searching through UI components.
+- External project URLs remain visibly marked placeholders and are prevented from pretending to be verified live links.
+- The contact form validates locally and shows a staged-success message rather than claiming email delivery without a provider.
+- Experience, certifications, and achievements use honest empty states until verified data is supplied.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The portfolio includes responsive navigation, active section tracking, interactive terminal commands, skills tabs, project category filters, accessible project detail modals, honest academic/profile dashboards, local contact validation, resume detection, and back-to-top navigation.
 
 ## User preferences
 

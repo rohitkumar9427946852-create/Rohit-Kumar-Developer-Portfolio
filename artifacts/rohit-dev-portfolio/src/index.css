@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 225 36% 8%;
+  --foreground: 215 32% 92%;
+  --border: 220 25% 18%;
+  --input: 220 25% 18%;
+  --ring: 190 94% 62%;
+  --card: 225 31% 11%;
+  --card-foreground: 215 32% 92%;
+  --card-border: 220 24% 19%;
+  --popover: 225 31% 11%;
+  --popover-foreground: 215 32% 92%;
+  --popover-border: 220 24% 22%;
+  --primary: 190 94% 62%;
+  --primary-foreground: 225 36% 8%;
+  --secondary: 262 62% 68%;
+  --secondary-foreground: 225 36% 8%;
+  --muted: 222 24% 15%;
+  --muted-foreground: 216 17% 62%;
+  --accent: 262 62% 68%;
+  --accent-foreground: 225 36% 8%;
+  --destructive: 0 72% 64%;
+  --destructive-foreground: 225 36% 8%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-display: 'Space Grotesk', sans-serif;
+  --app-font-mono: 'JetBrains Mono', monospace;
+  --radius: 0.85rem;
+  --shadow-color: 220 64% 4%;
+}
+
+.dark {
+  --background: 225 36% 8%;
+  --foreground: 215 32% 92%;
+  --border: 220 25% 18%;
+  --input: 220 25% 18%;
+  --ring: 190 94% 62%;
+  --card: 225 31% 11%;
+  --card-foreground: 215 32% 92%;
+  --card-border: 220 24% 19%;
+  --popover: 225 31% 11%;
+  --popover-foreground: 215 32% 92%;
+  --popover-border: 220 24% 22%;
+  --primary: 190 94% 62%;
+  --primary-foreground: 225 36% 8%;
+  --secondary: 262 62% 68%;
+  --secondary-foreground: 225 36% 8%;
+  --muted: 222 24% 15%;
+  --muted-foreground: 216 17% 62%;
+  --accent: 262 62% 68%;
+  --accent-foreground: 225 36% 8%;
+  --destructive: 0 72% 64%;
+  --destructive-foreground: 225 36% 8%;
+  --sidebar: 225 36% 8%;
+  --sidebar-foreground: 215 32% 92%;
+  --sidebar-border: 220 25% 18%;
+  --sidebar-primary: 190 94% 62%;
+  --sidebar-primary-foreground: 225 36% 8%;
+  --sidebar-accent: 222 24% 15%;
+  --sidebar-accent-foreground: 215 32% 92%;
+  --sidebar-ring: 190 94% 62%;
+  --chart-1: 190 94% 62%;
+  --chart-2: 262 62% 68%;
+  --chart-3: 155 52% 58%;
+  --chart-4: 35 88% 62%;
+  --chart-5: 0 72% 64%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; background: hsl(var(--background)); }
+  body {
+    @apply font-sans antialiased;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow-x: hidden;
+  }
+  ::selection { background: hsl(var(--primary) / 0.28); color: hsl(var(--foreground)); }
+  button, a, input, textarea { outline-color: hsl(var(--primary)); }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--app-font-display); }
+  .font-mono { font-family: var(--app-font-mono); }
+  .text-balance { text-wrap: balance; }
+  .grid-bg {
+    background-image: linear-gradient(hsl(var(--primary) / 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.055) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .section-wrap { width: min(1160px, calc(100% - 2rem)); margin-inline: auto; }
+  .hairline { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent); }
+  .focus-ring:focus-visible { box-shadow: 0 0 0 3px hsl(var(--background)), 0 0 0 5px hsl(var(--primary)); }
+}
+
+.noise::after {
+  content: '';
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.reveal { animation: reveal 700ms cubic-bezier(.2,.8,.2,1) both; }
+.reveal-delay-1 { animation-delay: 90ms; }
+.reveal-delay-2 { animation-delay: 180ms; }
+.reveal-delay-3 { animation-delay: 270ms; }
+.float-slow { animation: float-slow 8s ease-in-out infinite; }
+.pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+.cursor-blink { animation: blink 1.1s steps(2, end) infinite; }
+
+@keyframes reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float-slow { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-9px) rotate(1.5deg); } }
+@keyframes pulse-dot { 0%,100% { opacity: .45; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
