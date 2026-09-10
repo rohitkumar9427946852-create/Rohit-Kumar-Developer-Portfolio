@@ -131,6 +131,10 @@
    .heading-gradient { background: linear-gradient(105deg, hsl(210 40% 98%), hsl(217 91% 78%) 58%, hsl(258 90% 78%)); background-clip: text; -webkit-background-clip: text; color: transparent; }
    main .text-slate-400 { color: hsl(210 40% 92%) !important; }
    main .text-slate-500 { color: hsl(215 28% 80%) !important; }
+   header .text-slate-400 { color: hsl(210 35% 86%) !important; }
+   header .text-slate-500 { color: hsl(215 28% 78%) !important; }
+   footer .text-slate-500 { color: hsl(215 28% 82%) !important; }
+   footer .text-slate-600 { color: hsl(215 22% 70%) !important; }
 }
 
 .noise::after {
